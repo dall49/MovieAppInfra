@@ -25,3 +25,12 @@
   notify:
     - Start Jenkins
     - Enable Jenkins
+
+- name: Add jenkins user to Docker group
+  user:
+    name: 'jenkins'
+    groups: 
+      - docker
+    append: yes
+
+
