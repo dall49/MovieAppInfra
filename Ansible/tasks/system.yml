@@ -1,0 +1,11 @@
+---
+- name: Clean System
+  apt:
+    autoremove: yes
+    force_apt_get: yes
+
+- name: Upgrade System
+  apt:
+    upgrade: 'yes'
+    update_cache: yes
+    force_apt_get: yes

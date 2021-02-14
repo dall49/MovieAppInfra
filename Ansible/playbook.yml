@@ -1,0 +1,28 @@
+---
+- name: Setup System
+  hosts: servers
+  become: yes
+  tasks:
+    - include: tasks/system.yml
+
+- name: Setup Docker
+  hosts: servers
+  become: yes
+  tasks:
+    - include: tasks/docker.yml
+  handlers:
+    - include: handlers/docker.yml
+
+- name: Setup Docker-Compose
+  hosts: servers
+  become: yes
+  tasks:
+    - include: tasks/dockercompose.yml
+
+- name: Setup Jenkins
+  hosts: servers
+  become: yes
+  tasks:
+    - include: tasks/jenkins.yml
+  handlers:
+    - include: handlers/jenkins.yml
