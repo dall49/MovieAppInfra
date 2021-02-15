@@ -22,9 +22,6 @@
     state: present
     update_cache: yes
     force_apt_get: yes
-  notify:
-    - Start Jenkins
-    - Enable Jenkins
 
 - name: Add jenkins user to Docker group
   user:
@@ -32,5 +29,8 @@
     groups: 
       - docker
     append: yes
+  notify:
+    - Restart Jenkins
+    - Enable Jenkins
 
 

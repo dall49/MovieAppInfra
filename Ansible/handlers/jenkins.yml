@@ -1,8 +1,8 @@
 ---
-- name: Start Jenkins
+- name: Restart Jenkins
   service:
     name: jenkins
-    state: started
+    state: restarted
 - name: Enable Jenkins
   service:
     name: jenkins

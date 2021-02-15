@@ -47,7 +47,7 @@
     update_cache: yes
     force_apt_get: yes
   notify:
-    - Start Docker
+    - Restart Docker
     - Enable Docker
 
 - name: Add remote user to Docker group
