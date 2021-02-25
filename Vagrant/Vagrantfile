@@ -16,11 +16,6 @@ Vagrant.configure("2") do |config|
       vb.memory = 2048
       vb.cpus = 1
     end
-    manager.ssh.insert_key = false
-    manager.vm.provision "file" do |f|
-      f.source = "~/.ssh/id_rsa.pub"
-      f.destination = "/home/vagrant/.ssh/authorized_keys"
-    end
     manager.vm.provision "shell" do |s|
       s.inline = "sudo apt-get install ansible sshpass -y"
     end
