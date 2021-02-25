@@ -3,6 +3,7 @@
   service:
     name: docker
     state: restarted
+
 - name: Enable Docker
   service:
     name: docker

@@ -1,0 +1,10 @@
+---
+- name: Restart NetShare
+  service:
+    name: docker-volume-netshare
+    state: restarted
+
+- name: Enable NetShare
+  service:
+    name: docker-volume-netshare
+    state: enabled

@@ -1,0 +1,3 @@
+---
+- name: Add Workers to Cluster
+  shell: "docker swarm join --token {{ hostvars['TokenHolder']['token'] }} {{ host }}:{{ port }} || echo Already Joined"

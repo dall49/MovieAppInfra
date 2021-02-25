@@ -1,0 +1,45 @@
+---
+- name: Setup System
+  hosts: all
+  become: yes
+  tasks:
+    - include: tasks/system.yaml
+
+- name: Setup Docker
+  hosts: all
+  become: yes
+  tasks:
+    - include: tasks/docker.yaml
+  handlers:
+    - include: handlers/docker.yaml
+
+- name: Setup Docker-Compose
+  hosts: manager
+  become: yes
+  tasks:
+    - include: tasks/dockercompose.yaml
+
+- name: Setup Manager
+  hosts: manager
+  tasks:
+    - include: tasks/manager.yaml
+
+- name: Setup Workers
+  hosts: workers
+  tasks:
+    - include: tasks/workers.yaml
+
+- name: Setup Docker NFS
+  hosts: all
+  tasks:
+    - include: tasks/nfs.yaml
+  handlers:
+    - include: handlers/nfs.yaml
+
+- name: Setup Jenkins
+  hosts: manager
+  become: yes
+  tasks:
+    - include: tasks/jenkins.yaml
+  handlers:
+    - include: handlers/jenkins.yaml

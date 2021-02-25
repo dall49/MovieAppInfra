@@ -64,7 +64,7 @@ variable "instance_count" {
 resource "aws_instance" "ubuntu" {
   count         = var.instance_count
   ami           = "ami-03d315ad33b9d49c4"
-  instance_type = "t2.micro"
+  instance_type = "t2.medium"
   key_name      = "ssh-key"
   
 

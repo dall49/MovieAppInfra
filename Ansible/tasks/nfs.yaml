@@ -1,0 +1,28 @@
+---
+- name: Download NetShare
+  get_url:
+    url: https://github.com/ContainX/docker-volume-netshare/releases/download/v0.36/docker-volume-netshare_0.36_amd64.deb
+    dest: "/home/{{ user }}/netshare.deb"
+    mode: '0755'
+
+- name: Install Netshare
+  become: yes
+  apt:
+    deb: "/home/{{ user }}/netshare.deb"
+  notify:
+    - Restart NetShare
+    - Enable NetShare
+
+- name: Create Database Directory
+  become: yes
+  file:
+    path: "/nfs/mysql"
+    state: directory
+    mode: '0755'
+
+- name: Create Images Directory
+  become: yes
+  file:
+    path: "/nfs/images"
+    state: directory
+    mode: '0755'
