@@ -19,7 +19,7 @@
     update_cache: yes
     force_apt_get: yes
 
-- name: Install Apt HTTPS Tools and NFS Client
+- name: Install Apt HTTPS Tools 
   apt:
     pkg:
       - apt-transport-https
@@ -27,7 +27,6 @@
       - curl
       - gnupg-agent
       - software-properties-common
-      - nfs-common
     state: present
     update_cache: yes
     force_apt_get: yes

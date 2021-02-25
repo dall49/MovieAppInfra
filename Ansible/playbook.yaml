@@ -19,23 +19,6 @@
   tasks:
     - include: tasks/dockercompose.yaml
 
-- name: Setup Manager
-  hosts: manager
-  tasks:
-    - include: tasks/manager.yaml
-
-- name: Setup Workers
-  hosts: workers
-  tasks:
-    - include: tasks/workers.yaml
-
-- name: Setup Docker NFS
-  hosts: all
-  tasks:
-    - include: tasks/nfs.yaml
-  handlers:
-    - include: handlers/nfs.yaml
-
 - name: Setup Jenkins
   hosts: manager
   become: yes

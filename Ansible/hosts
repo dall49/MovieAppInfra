@@ -1,13 +1,7 @@
 
 [all:vars]
 user=vagrant
-host=192.168.33.10
-port=2377
 
 [manager]
 192.168.33.10
-
-[workers]
-192.168.33.11
-192.168.33.12
 
